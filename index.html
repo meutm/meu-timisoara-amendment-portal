@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Favicon browser -->
+<link rel="icon" type="image/png" href="logo/meu-logo-albastru-fara-scris.png">
+
+<!-- Apple homescreen (iPhone/iPad) -->
+<link rel="apple-touch-icon" href="logo/meu-logo-albastru-fara-scris.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MEU Timisoara 2026 - Amendment Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{--ink:#0b1626;--ink2:#1c2e4a;--ink3:#2e4a6e;--gold:#b8902a;--pale:#e8d49a;--rule:#d6dce8;--rdark:rgba(255,255,255,.09);--paper:#f7f6f2;--white:#fff;--muted:#8a96aa;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{height:100%;}
+    body{font-family:'Jost',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:grid;grid-template-columns:360px 1fr;}
+
+    /* LEFT */
+    .pl{background:var(--ink);position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:48px 40px;overflow:hidden;}
+    .pl::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);background-size:36px 36px;pointer-events:none;}
+    .pl::after{content:'';position:absolute;bottom:-100px;right:-100px;width:360px;height:360px;border:1px solid rgba(184,144,42,.12);border-radius:50%;pointer-events:none;}
+    .li{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;}
+
+    .lt{display:inline-flex;align-items:center;align-self:flex-start;margin-bottom:44px;border:1px solid var(--rdark);border-radius:3px;overflow:hidden;}
+    .lb{padding:5px 13px;font-family:'Jost',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:rgba(255,255,255,.32);background:transparent;border:none;cursor:pointer;transition:all .18s;}
+    .lb.on{background:var(--gold);color:#fff;}
+    .ls{width:1px;height:26px;background:var(--rdark);}
+
+    .ring{width:52px;height:52px;margin-bottom:28px;}
+    .ring svg{animation:spin 40s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+
+    .lh{font-family:'Cormorant',serif;font-size:2.3rem;font-weight:300;line-height:1.18;color:#fff;margin-bottom:7px;}
+    .lh em{font-style:italic;color:var(--pale);}
+    .ls2{font-size:.78rem;font-weight:300;color:rgba(255,255,255,.36);letter-spacing:.4px;margin-bottom:36px;line-height:1.5;}
+
+    .ml{list-style:none;border-top:1px solid var(--rdark);}
+    .mi{display:flex;align-items:flex-start;gap:11px;padding:13px 0;border-bottom:1px solid var(--rdark);}
+    .mic{flex-shrink:0;margin-top:1px;opacity:.42;}
+    .mil{display:block;font-size:.6rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold);margin-bottom:2px;}
+    .miv{font-size:.78rem;font-weight:300;color:rgba(255,255,255,.62);}
+
+    .lft{margin-top:auto;padding-top:24px;border-top:1px solid var(--rdark);}
+    .lfl{font-size:.6rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:10px;}
+    .sg{margin-bottom:7px;}
+    .sgn{font-size:.76rem;font-weight:500;color:rgba(255,255,255,.58);display:block;}
+    .sgr{font-size:.67rem;font-weight:300;color:rgba(255,255,255,.26);}
+
+    /* RIGHT */
+    .pr{display:flex;flex-direction:column;min-height:100vh;}
+    .tb{height:50px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 52px;flex-shrink:0;}
+    .tbl{font-size:.66rem;font-weight:500;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);}
+    .sp{display:flex;align-items:center;gap:6px;}
+    .sd{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:blink 2.5s ease-in-out infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+    .st{font-size:.65rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);}
+
+    .rm{flex:1;padding:40px 52px;}
+    .fw{width:100%;max-width:580px;margin:0 auto;}
+
+    .fe{display:flex;align-items:center;gap:11px;margin-bottom:13px;}
+    .fel{width:26px;height:1px;background:var(--gold);}
+    .fet{font-size:.63rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);}
+
+    .ft{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:600;color:var(--ink);line-height:1.15;letter-spacing:-.3px;margin-bottom:8px;}
+    .fd{font-size:.83rem;font-weight:300;color:var(--muted);line-height:1.65;margin-bottom:32px;}
+
+    /* Section separator */
+    .sec-sep{display:flex;align-items:center;gap:12px;margin:28px 0 20px;}
+    .sec-line{flex:1;height:1px;background:var(--rule);}
+    .sec-num{font-size:.58rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+
+    .fi{margin-bottom:22px;}
+    .fll{display:flex;align-items:center;gap:7px;margin-bottom:8px;}
+    .fll svg{color:var(--muted);flex-shrink:0;}
+    .flt{font-size:.66rem;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink2);}
+    .freq{color:var(--gold);font-size:.85rem;line-height:1;}
+
+    input[type="text"],select,textarea{width:100%;padding:13px 14px;border:1px solid var(--rule);border-radius:0;font-family:'Jost',sans-serif;font-size:.88rem;color:var(--ink);background:#fff;outline:none;appearance:none;transition:border-color .18s,box-shadow .18s;}
+    input[type="text"]:focus,select:focus,textarea:focus{border-color:var(--ink3);box-shadow:0 0 0 2px rgba(46,74,110,.07);}
+    textarea{resize:vertical;min-height:130px;line-height:1.65;}
+
+    select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%230b1626' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:38px;cursor:pointer;}
+    select:disabled{opacity:.38;cursor:not-allowed;background-color:#f8f9fc;}
+
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .grid2 input:first-child,.grid2 select:first-child{border-right:none;}
+
+    .grid4{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+    .grid4>*:nth-child(1){border-right:none;border-bottom:none;}
+    .grid4>*:nth-child(2){border-bottom:none;}
+    .grid4>*:nth-child(3){border-right:none;}
+
+    .fsh{margin-top:5px;font-size:.69rem;font-weight:300;color:var(--muted);line-height:1.5;}
+    .fsh.err{color:#b22222;font-weight:500;}
+
+    /* Button */
+    .bd{width:100%;padding:16px 20px;background:var(--ink);color:#fff;font-family:'Jost',sans-serif;font-size:.76rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden;transition:background .2s,border-color .2s;margin-top:8px;}
+    .bd::before{content:'';position:absolute;left:0;top:0;height:100%;width:0%;background:var(--gold);transition:width .38s ease;z-index:0;}
+    .bd:hover::before{width:100%;}
+    .bd:hover{border-color:var(--gold);}
+    .bd>*{position:relative;z-index:1;}
+    .bd:disabled{opacity:.52;cursor:not-allowed;}
+    .bd:disabled::before{display:none;}
+    .sp2{width:14px;height:14px;border:1.5px solid rgba(255,255,255,.22);border-top-color:#fff;border-radius:50%;animation:spn .7s linear infinite;}
+    @keyframes spn{to{transform:rotate(360deg);}}
+
+    /* Success overlay */
+    .success-overlay{display:none;position:fixed;inset:0;background:rgba(11,22,38,.92);z-index:100;align-items:center;justify-content:center;}
+    .success-overlay.show{display:flex;}
+    .success-box{background:var(--paper);max-width:420px;width:90%;padding:48px 40px;text-align:center;position:relative;}
+    .success-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--ink3));}
+    .success-icon{width:52px;height:52px;border:1px solid rgba(34,197,94,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+    .success-title{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--ink);margin-bottom:10px;}
+    .success-desc{font-size:.82rem;font-weight:300;color:var(--muted);line-height:1.7;margin-bottom:28px;}
+    .success-close{padding:11px 28px;background:var(--ink);color:#fff;font-family:'Jost',sans-serif;font-size:.7rem;font-weight:500;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;}
+    .success-close:hover{background:var(--gold);}
+
+    .rf{height:50px;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 52px;flex-shrink:0;}
+    .rfl{font-size:.67rem;font-weight:300;color:var(--muted);}
+    .rfr{font-size:.63rem;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);opacity:.55;}
+
+    @media(max-width:960px){
+      body{grid-template-columns:1fr;}
+      .pl{position:static;height:auto;padding:36px 28px;order:2;}
+      .pr{order:1;}
+      .lft{display:none;}
+      .ring{display:none;}
+      .lh{font-size:1.75rem;}
+      .ls2{margin-bottom:20px;}
+      .ml{display:grid;grid-template-columns:1fr 1fr;}
+    }
+    @media(max-width:640px){
+      .rm{padding:28px 20px;}
+      .tb,.rf{padding:0 20px;}
+      .grid2,.grid4{grid-template-columns:1fr;}
+      .grid2 input:first-child,.grid2 select:first-child,.grid4>*{border-right:1px solid var(--rule);border-bottom:none;}
+      .grid4>*:last-child{border-bottom:1px solid var(--rule);}
+      .ft{font-size:1.75rem;}
+      .success-box{padding:32px 24px;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- LEFT PANEL -->
+<aside class="pl">
+  <div class="li">
+    <div class="lt">
+      <button class="lb" onclick="setLang('en')" id="btn-en">EN</button>
+      <div class="ls"></div>
+     <button class="lb on" onclick="setLang('ro')" id="btn-ro">RO</button>
+    </div>
+
+    <div class="ring">
+      <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+        <circle cx="26" cy="26" r="22" stroke="rgba(184,144,42,.18)" stroke-width=".75"/>
+        <g fill="#b8902a" opacity=".72">
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(0 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(30 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(60 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(90 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(120 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(150 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(180 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(210 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(240 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(270 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(300 26 26)"/>
+          <polygon points="26,5 26.75,7.2 29.1,7.2 27.2,8.55 27.95,10.75 26,9.4 24.05,10.75 24.8,8.55 22.9,7.2 25.25,7.2" transform="rotate(330 26 26)"/>
+        </g>
+      </svg>
+    </div>
+
+    <h2 class="lh">Model<br/>European<br/>Union <em>Timisoara</em></h2>
+    <p class="ls2" id="lsub">First Edition · 2026 · Amendment Portal</p>
+
+    <ul class="ml">
+      <li class="mi">
+        <svg class="mic" width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.1"><rect x="1" y="2" width="11" height="10" rx=".8"/><path d="M1 5.5h11M4 1v2.5M9 1v2.5"/></svg>
+        <div><span class="mil" id="m1">Dates</span><span class="miv">25–29 March 2026</span></div>
+      </li>
+      <li class="mi">
+        <svg class="mic" width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.1"><path d="M6.5 1C4.57 1 3 2.57 3 4.5c0 2.8 3.5 7 3.5 7s3.5-4.2 3.5-7C10 2.57 8.43 1 6.5 1z"/><circle cx="6.5" cy="4.5" r="1.2"/></svg>
+        <div><span class="mil" id="m2">Location</span><span class="miv">Timisoara, Romania</span></div>
+      </li>
+      <li class="mi">
+        <svg class="mic" width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.1"><path d="M6.5 1L1 4.5v5L6.5 12 12 9.5v-5L6.5 1z"/><path d="M6.5 1v11M1 4.5l5.5 3 5.5-3"/></svg>
+        <div><span class="mil" id="m3">Patronage</span><span class="miv">European Parliament</span></div>
+      </li>
+      <li class="mi">
+        <svg class="mic" width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.1"><circle cx="6.5" cy="6.5" r="5.5"/><path d="M6.5 1.2S4.2 3 4.2 6.5s2.3 5.3 2.3 5.3M6.5 1.2S8.8 3 8.8 6.5 6.5 11.8 6.5 11.8M1.2 6.5h10.6"/></svg>
+        <div><span class="mil" id="m4">Institution</span><span class="miv">Universitatea de Vest din Timisoara</span></div>
+      </li>
+    </ul>
+
+    <div class="lft">
+      <div class="lfl" id="siglabel">Authorized Signatories</div>
+      <div class="sg"><span class="sgn">Viorel Lambu</span><span class="sgr" id="sr1">Director General</span></div>
+      <div class="sg"><span class="sgn">Paula Iovescu</span><span class="sgr" id="sr2">Project Manager</span></div>
+    </div>
+  </div>
+</aside>
+
+<!-- RIGHT PANEL -->
+<div class="pr">
+  <div class="tb">
+    <span class="tbl" id="tblabel">Amendment Submission System</span>
+    <div class="sp">
+      <div class="sd"></div>
+      <span class="st" id="stlabel">Open</span>
+    </div>
+  </div>
+
+  <div class="rm">
+    <div class="fw">
+
+      <div class="fe">
+        <div class="fel"></div>
+        <div class="fet" id="eyebrow">Official Amendment</div>
+      </div>
+      <h1 class="ft" id="formtitle">Submit Your<br/>Amendment</h1>
+      <p class="fd" id="formdesc">Complete all fields below. Your amendment will be recorded and reviewed by the MEU Timisoara 2026 secretariat.</p>
+
+      <!-- SECTION 1 — INITIATOR -->
+      <div class="sec-sep">
+        <div class="sec-line"></div>
+        <div class="sec-num" id="sec1label">01 · Initiator</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="fi">
+        <div class="fll">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="6.5" cy="4" r="2.2"/><path d="M1 11.5c0-2.4 2.46-4.3 5.5-4.3s5.5 1.9 5.5 4.3"/></svg>
+          <span class="flt" id="l-initiator">Full Name</span>
+          <span class="freq">*</span>
+        </div>
+        <input type="text" id="initiator" placeholder="First and last name" maxlength="80" autocomplete="off" oninput="validateLatin(this)" />
+        <div class="fsh" id="hint-initiator">Latin characters only</div>
+      </div>
+
+      <!-- SECTION 2 — ROLE -->
+      <div class="sec-sep">
+        <div class="sec-line"></div>
+        <div class="sec-num" id="sec2label">02 · Role</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="fi">
+        <div class="fll">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.1"><rect x="1" y="3.5" width="11" height="8" rx=".7"/><path d="M4 3.5V2.8a2.5 2.5 0 015 0v.7"/></svg>
+          <span class="flt" id="l-role">Role Type</span>
+          <span class="freq">*</span>
+        </div>
+        <select id="role-type" onchange="onRoleChange()">
+          <option value="" id="rph">Select role...</option>
+          <option value="Minister" id="rmin">Minister</option>
+          <option value="MEP" id="rmep">MEP</option>
+        </select>
+      </div>
+
+      <!-- SECTION 3 — COUNTRY / GROUP -->
+      <div class="sec-sep">
+        <div class="sec-line"></div>
+        <div class="sec-num" id="sec3label">03 · Delegation</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="fi">
+        <div class="fll">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M6.5 1C4.57 1 3 2.57 3 4.5c0 2.8 3.5 7 3.5 7s3.5-4.2 3.5-7C10 2.57 8.43 1 6.5 1z"/><circle cx="6.5" cy="4.5" r="1.2"/></svg>
+          <span class="flt" id="l-delegation">Country / Political Group</span>
+          <span class="freq">*</span>
+        </div>
+        <select id="delegation" disabled>
+          <option value="" id="dph">Select role first...</option>
+        </select>
+        <div class="fsh" id="hint-delegation">Select your role above to unlock this field</div>
+      </div>
+
+      <!-- SECTION 4 — SUPPORTERS -->
+      <div class="sec-sep">
+        <div class="sec-line"></div>
+        <div class="sec-num" id="sec4label">04 · Supporters</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="fi">
+        <div class="fll">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.1"><circle cx="4" cy="4" r="1.8"/><circle cx="9" cy="4" r="1.8"/><path d="M1 11c0-1.7 1.34-3 3-3s3 1.3 3 3M7.5 8.2c.47-.13.97-.2 1.5-.2 1.66 0 3 1.3 3 3"/></svg>
+          <span class="flt" id="l-supporters">Supporters (4 required)</span>
+          <span class="freq">*</span>
+        </div>
+        <div class="grid4">
+          <input type="text" id="s1" placeholder="Supporter 1" maxlength="80" autocomplete="off" oninput="validateLatin(this)" />
+          <input type="text" id="s2" placeholder="Supporter 2" maxlength="80" autocomplete="off" oninput="validateLatin(this)" />
+          <input type="text" id="s3" placeholder="Supporter 3" maxlength="80" autocomplete="off" oninput="validateLatin(this)" />
+          <input type="text" id="s4" placeholder="Supporter 4" maxlength="80" autocomplete="off" oninput="validateLatin(this)" />
+        </div>
+        <div class="fsh" id="hint-supporters">Full names · Latin characters only</div>
+      </div>
+
+      <!-- SECTION 5 — DIRECTIVE -->
+      <div class="sec-sep">
+        <div class="sec-line"></div>
+        <div class="sec-num" id="sec5label">05 · Directive</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="fi">
+        <div class="fll">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M2 2h9v9H2zM4.5 5.5h4M4.5 7.5h2.5"/></svg>
+          <span class="flt" id="l-directive">Directive</span>
+          <span class="freq">*</span>
+        </div>
+        <select id="directive">
+          <option value="" id="ddir">Select directive...</option>
+<option value="Directiva privind Coridorul Militar Schengen" id="dir1">Directiva privind Coridorul Militar Schengen / Directive on the Military Schengen Corridor</option>
+<option value="Directiva privind facilitarea accesului la investigații medicale printr-un portal centralizat de programări" id="dir2">Directiva privind facilitarea accesului la investigații medicale printr-un portal centralizat de programări / Directive on facilitating access to medical investigations through a centralised appointment portal</option>
+        </select>
+        <div class="fsh" id="hint-directive"></div>
+      </div>
+
+      <!-- SECTION 6 — ARTICLE -->
+      <div class="sec-sep">
+        <div class="sec-line"></div>
+        <div class="sec-num" id="sec6label">06 · Article</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="fi">
+        <div class="fll">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M3 1h7l2 2v9H3V1z"/><path d="M8 1v3h2M4.5 6h4M4.5 8h4M4.5 10h2"/></svg>
+          <span class="flt" id="l-article">Article of Directive</span>
+          <span class="freq">*</span>
+        </div>
+        <input type="text" id="article" placeholder="e.g. Art. 5, para. 2" maxlength="100" autocomplete="off" />
+        <div class="fsh" id="hint-article">Enter the specific article reference</div>
+      </div>
+
+      <!-- SECTION 7 — ACTION -->
+      <div class="sec-sep">
+        <div class="sec-line"></div>
+        <div class="sec-num" id="sec7label">07 · Action</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="fi">
+        <div class="fll">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M2 6.5h9M7.5 3.5l3 3-3 3"/></svg>
+          <span class="flt" id="l-action">Amendment Type</span>
+          <span class="freq">*</span>
+        </div>
+        <select id="action">
+          <option value="" id="aph">Select action...</option>
+          <option value="Eliminat" id="adel">Deleted</option>
+          <option value="Modificat" id="amod">Modified</option>
+          <option value="Adăugat" id="aadd">Added</option>
+        </select>
+      </div>
+
+      <!-- SECTION 8 — TEXT -->
+      <div class="sec-sep">
+        <div class="sec-line"></div>
+        <div class="sec-num" id="sec8label">08 · Amended Text</div>
+        <div class="sec-line"></div>
+      </div>
+
+      <div class="fi">
+        <div class="fll">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M2 2h9v9H2z"/><path d="M4 5h5M4 7h5M4 9h3"/></svg>
+          <span class="flt" id="l-text">Modified / Added / Deleted Text</span>
+          <span class="freq">*</span>
+        </div>
+        <textarea id="amended-text" id="amended-text" placeholder="Enter the full text of the amendment..."></textarea>
+        <div class="fsh" id="hint-text">Provide the complete text as it should appear in the directive</div>
+      </div>
+
+      <!-- SUBMIT -->
+      <button class="bd" id="submitBtn" onclick="submitForm()">
+        <span id="btnText">Submit Amendment</span>
+        <svg id="btnIcon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M7.5 3l4.5 4-4.5 4"/></svg>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="rf">
+    <span class="rfl">MEU Timisoara 2026 · Universitatea de Vest din Timisoara</span>
+    <span class="rfr" id="footr">European Parliament Patronage</span>
+  </div>
+</div>
+
+<!-- SUCCESS OVERLAY -->
+<div class="success-overlay" id="successOverlay">
+  <div class="success-box">
+    <div class="success-icon">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#22c55e" stroke-width="1.8"><polyline points="4,11 8.5,15.5 18,6"/></svg>
+    </div>
+    <div class="success-title" id="succ-title">Amendment Submitted</div>
+    <p class="success-desc" id="succ-desc">Your amendment has been recorded successfully. The MEU Timisoara 2026 secretariat will review your submission.</p>
+    <button class="success-close" onclick="closeSuccess()" id="succ-btn">Submit Another</button>
+  </div>
+</div>
+
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyx-QXGfg7ZpsTcMaacdyLN2FtyS9hBwkcnM6o3455Q3XI-qMzAh87WLLJlLM91Z2m2mg/exec';
+
+const COUNTRIES = ['Austria','Belgium','Bulgaria','Cyprus','Finland','France','Germany','Greece','Hungary','Italy','Lithuania','Netherlands','Poland','Portugal','Romania','Slovakia','Spain'];
+const GROUPS    = ['EPP','S&D','Greens','Renew Europe','The Left','ECR','ESN','Patriots'];
+
+const DIRECTIVES = {
+  en: [
+    'Directiva privind Coridorul Militar Schengen',
+    'Directiva privind facilitarea accesului la investigații medicale printr-un portal centralizat de programări'
+  ],
+  ro: [
+    'Directiva privind Coridorul Militar Schengen',
+    'Directiva privind facilitarea accesului la investigații medicale printr-un portal centralizat de programări'
+  ]
+};
+
+const T = {
+  en: {
+    lsub: 'First Edition · 2026 · Amendment Portal',
+    m1:'Dates', m2:'Location', m3:'Patronage', m4:'Institution',
+    siglabel:'Authorized Signatories', sr2:'Project Manager',
+    tblabel:'Amendment Submission System', stlabel:'Open',
+    eyebrow:'Official Amendment',
+    formtitle:'Submit Your<br/>Amendment',
+    formdesc:'Complete all fields below. Your amendment will be recorded and reviewed by the MEU Timisoara 2026 secretariat.',
+    sec1:'01 · Initiator', sec2:'02 · Role', sec3:'03 · Delegation',
+    sec4:'04 · Supporters', sec5:'05 · Directive', sec6:'06 · Article',
+    sec7:'07 · Action', sec8:'08 · Amended Text',
+    'l-initiator':'Full Name', 'hint-initiator':'Latin characters only',
+    'l-role':'Role Type',
+    rph:'Select role...', rmin:'Minister', rmep:'MEP',
+    'l-delegation':'Country / Political Group',
+    dph:'Select role first...', 'hint-delegation':'Select your role above to unlock this field',
+    'l-supporters':'Supporters (4 required)', 'hint-supporters':'Full names · Latin characters only',
+    'l-directive':'Directive', ddir:'Select directive...',
+dir1:'Directive on the Military Schengen Corridor',
+dir2:'Directive on facilitating access to medical investigations through a centralised appointment portal',
+dir1val:'Directive on the Military Schengen Corridor',
+dir2val:'Directive on facilitating access to medical investigations through a centralised appointment portal',
+adelval:'Deleted', amodval:'Modified', aaddval:'Added',
+    'hint-directive':'',
+    'l-article':'Article of Directive', 'hint-article':'Enter the specific article reference',
+    'l-action':'Amendment Type',
+    aph:'Select action...', adel:'Deleted', amod:'Modified', aadd:'Added',
+    'l-text':'Modified / Added / Deleted Text', 'hint-text':'Provide the complete text as it should appear in the directive',
+    btnSubmit:'Submit Amendment', btnSending:'Sending...',
+    footr:'European Parliament Patronage',
+    'succ-title':'Amendment Submitted',
+    'succ-desc':'Your amendment has been recorded successfully. The MEU Timisoara 2026 secretariat will review your submission.',
+    'succ-btn':'Submit Another',
+    errName:'Please enter the initiator\'s full name.',
+    errLatin:'Please use Latin characters only.',
+    errRole:'Please select a role.',
+    errDelegation:'Please select a country or political group.',
+    errSupporters:'Please enter all 4 supporters\' names.',
+    errDirective:'Please select a directive.',
+    errArticle:'Please enter the article reference.',
+    errAction:'Please select an amendment type.',
+    errText:'Please enter the amended text.',
+    s1:'Supporter 1', s2:'Supporter 2', s3:'Supporter 3', s4:'Supporter 4',
+    placeholder_initiator:'First and last name',
+    placeholder_article:'e.g. Art. 5, para. 2',
+    placeholder_text:'Enter the full text of the amendment...',
+  },
+  ro: {
+    lsub: 'Prima Ediție · 2026 · Portal Amendamente',
+    m1:'Perioadă', m2:'Locație', m3:'Patronaj', m4:'Instituție',
+    siglabel:'Semnatari Autorizați', sr2:'Manager de Proiect',
+    tblabel:'Sistem de Depunere Amendamente', stlabel:'Deschis',
+    eyebrow:'Document Oficial',
+    formtitle:'Depune<br/>Amendamentul',
+    formdesc:'Completează toate câmpurile de mai jos. Amendamentul tău va fi înregistrat și analizat de secretariatul MEU Timisoara 2026.',
+    sec1:'01 · Inițiator', sec2:'02 · Rol', sec3:'03 · Delegație',
+    sec4:'04 · Susținători', sec5:'05 · Directivă', sec6:'06 · Articol',
+    sec7:'07 · Acțiune', sec8:'08 · Text Modificat',
+    'l-initiator':'Nume Complet', 'hint-initiator':'Doar caractere latine',
+    'l-role':'Tip de Rol',
+    rph:'Selectează rolul...', rmin:'Ministru', rmep:'MEP',
+    'l-delegation':'Țară / Grup Politic',
+    dph:'Selectează mai întâi rolul...', 'hint-delegation':'Selectează rolul de mai sus pentru a debloca acest câmp',
+    'l-supporters':'Susținători (4 necesari)', 'hint-supporters':'Nume complete · Doar caractere latine',
+    'l-directive':'Directivă', ddir:'Selectează directiva...',
+    dir1:'Directiva privind Coridorul Militar Schengen',
+    dir2:'Directiva privind facilitarea accesului la investigații medicale printr-un portal centralizat de programări',
+	dir1val:'Directiva privind Coridorul Militar Schengen',
+dir2val:'Directiva privind facilitarea accesului la investigații medicale printr-un portal centralizat de programări',
+adelval:'Eliminat', amodval:'Modificat', aaddval:'Adăugat',
+    'hint-directive':'',
+    'l-article':'Articolul Directivei', 'hint-article':'Introdu referința specifică a articolului',
+    'l-action':'Tipul Amendamentului',
+    aph:'Selectează acțiunea...', adel:'Eliminat', amod:'Modificat', aadd:'Adăugat',
+    'l-text':'Text Modificat / Adăugat / Eliminat', 'hint-text':'Introdu textul complet așa cum trebuie să apară în directivă',
+    btnSubmit:'Depune Amendamentul', btnSending:'Se trimite...',
+    footr:'Patronaj Parlamentul European',
+    'succ-title':'Amendament Depus',
+    'succ-desc':'Amendamentul tău a fost înregistrat cu succes. Secretariatul MEU Timisoara 2026 va analiza propunerea ta.',
+    'succ-btn':'Depune Alt Amendament',
+    errName:'Introduceți numele complet al inițiatorului.',
+    errLatin:'Folosiți doar caractere latine.',
+    errRole:'Selectați un rol.',
+    errDelegation:'Selectați o țară sau un grup politic.',
+    errSupporters:'Introduceți numele tuturor celor 4 susținători.',
+    errDirective:'Selectați o directivă.',
+    errArticle:'Introduceți referința articolului.',
+    errAction:'Selectați tipul amendamentului.',
+    errText:'Introduceți textul amendamentului.',
+    s1:'Susținător 1', s2:'Susținător 2', s3:'Susținător 3', s4:'Susținător 4',
+    placeholder_initiator:'Prenume și nume',
+    placeholder_article:'ex. Art. 5, alin. 2',
+    placeholder_text:'Introdu textul complet al amendamentului...',
+  }
+};
+
+let lang = 'ro';
+
+function setLang(l) {
+  lang = l;
+  document.getElementById('btn-en').classList.toggle('on', l==='en');
+  document.getElementById('btn-ro').classList.toggle('on', l==='ro');
+  const t = T[l];
+  const ids = ['lsub','m1','m2','m3','m4','siglabel','sr2','tblabel','stlabel','eyebrow','footr',
+    'l-initiator','hint-initiator','l-role','l-delegation','dph','hint-delegation',
+    'l-supporters','hint-supporters','l-directive','hint-directive',
+    'l-article','hint-article','l-action','l-text','hint-text',
+    'succ-title','succ-desc','succ-btn'];
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && t[id] !== undefined) el.textContent = t[id];
+  });
+  document.getElementById('formtitle').innerHTML = t.formtitle;
+  document.getElementById('formdesc').textContent = t.formdesc;
+  document.getElementById('rph').textContent  = t.rph;
+  document.getElementById('rmin').textContent = t.rmin;
+  document.getElementById('rmep').textContent = t.rmep;
+  document.getElementById('ddir').textContent = t.ddir;
+  document.getElementById('dir1').textContent = t.dir1;
+  document.getElementById('dir2').textContent = t.dir2;
+  document.getElementById('aph').textContent  = t.aph;
+  document.getElementById('adel').textContent = t.adel;
+  document.getElementById('amod').textContent = t.amod;
+  document.getElementById('aadd').textContent = t.aadd;
+  ['sec1','sec2','sec3','sec4','sec5','sec6','sec7','sec8'].forEach((s,i) => {
+    document.getElementById('sec'+(i+1)+'label').textContent = t[s];
+  });
+  document.getElementById('btnText').textContent = t.btnSubmit;
+  document.getElementById('initiator').placeholder   = t.placeholder_initiator;
+  document.getElementById('article').placeholder     = t.placeholder_article;
+  document.getElementById('amended-text').placeholder= t.placeholder_text;
+  ['s1','s2','s3','s4'].forEach(id => {
+    document.getElementById(id).placeholder = t[id];
+  });
+  document.getElementById('dir1').value  = t.dir1val;
+document.getElementById('dir2').value  = t.dir2val;
+document.getElementById('adel').value  = t.adelval;
+document.getElementById('amod').value  = t.amodval;
+document.getElementById('aadd').value  = t.aaddval;
+}
+
+function onRoleChange() {
+  const role = document.getElementById('role-type').value;
+  const sel  = document.getElementById('delegation');
+  const hint = document.getElementById('hint-delegation');
+  const t    = T[lang];
+  sel.innerHTML = '';
+  const blank = document.createElement('option');
+blank.value = '';
+blank.textContent = role === 'Minister'
+  ? (lang === 'ro' ? 'Alege țara...' : 'Select country...')
+  : (lang === 'ro' ? 'Alege grupul...' : 'Select group...');
+sel.appendChild(blank);
+  if (!role) { sel.disabled = true; hint.textContent = t['hint-delegation']; return; }
+  const items = role === 'Minister' ? COUNTRIES : GROUPS;
+  items.forEach(item => {
+    const o = document.createElement('option');
+    o.value = item; o.textContent = item; sel.appendChild(o);
+  });
+  sel.disabled = false;
+  hint.textContent = role === 'Minister' ? (lang==='ro' ? 'Selectează țara pe care o reprezinți' : 'Select the country you represent') : (lang==='ro' ? 'Selectează grupul politic' : 'Select your political group');
+}
+
+const LATIN_RE = /^[a-zA-ZÀ-ÖØ-öø-ÿĂăÂâÎîȘșȚț\s\-'.]+$/;
+function validateLatin(el) {
+  const hint = el.nextElementSibling;
+  if (el.value && !LATIN_RE.test(el.value)) {
+    el.style.borderColor = '#b22222';
+  } else {
+    el.style.borderColor = '';
+  }
+}
+
+function showError(id, msg) {
+  const el = document.getElementById(id);
+  if (el) { el.style.borderColor = '#b22222'; }
+  // show hint
+  const hints = {
+    'initiator':'hint-initiator','delegation':'hint-delegation',
+    'directive':'hint-directive','article':'hint-article',
+    'action':'','amended-text':'hint-text',
+    's1':'hint-supporters','s2':'hint-supporters','s3':'hint-supporters','s4':'hint-supporters'
+  };
+  if (hints[id]) {
+    const h = document.getElementById(hints[id]);
+    if (h) { h.textContent = msg; h.className = 'fsh err'; }
+  }
+}
+
+function clearErrors() {
+  ['initiator','role-type','delegation','directive','article','action','amended-text','s1','s2','s3','s4'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.borderColor = '';
+  });
+  ['hint-initiator','hint-delegation','hint-directive','hint-article','hint-text','hint-supporters'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.className = 'fsh'; el.textContent = T[lang][id] || ''; }
+  });
+}
+
+async function submitForm() {
+  clearErrors();
+  const t = T[lang];
+  const initiator   = document.getElementById('initiator').value.trim();
+  const role        = document.getElementById('role-type').value;
+  const delegation  = document.getElementById('delegation').value;
+  const s1          = document.getElementById('s1').value.trim();
+  const s2          = document.getElementById('s2').value.trim();
+  const s3          = document.getElementById('s3').value.trim();
+  const s4          = document.getElementById('s4').value.trim();
+  const directive   = document.getElementById('directive').value;
+  const article     = document.getElementById('article').value.trim();
+  const action      = document.getElementById('action').value;
+  const amendedText = document.getElementById('amended-text').value.trim();
+
+  let valid = true;
+  if (!initiator)                    { showError('initiator', t.errName); valid=false; }
+  else if (!LATIN_RE.test(initiator)){ showError('initiator', t.errLatin); valid=false; }
+  if (!role)                         { showError('role-type', t.errRole); valid=false; }
+  if (!delegation)                   { showError('delegation', t.errDelegation); valid=false; }
+  if (!s1||!s2||!s3||!s4)           { showError('s1', t.errSupporters); valid=false; }
+  if (!directive)                    { showError('directive', t.errDirective); valid=false; }
+  if (!article)                      { showError('article', t.errArticle); valid=false; }
+  if (!action)                       { showError('action', t.errAction); valid=false; }
+  if (!amendedText)                  { showError('amended-text', t.errText); valid=false; }
+  if (!valid) return;
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  document.getElementById('btnText').textContent = t.btnSending;
+  document.getElementById('btnIcon').outerHTML = '<span class="sp2" id="btnIcon"></span>';
+
+  const fd = new FormData();
+  fd.append('initiator',    initiator);
+  fd.append('rol',          role);
+  fd.append('taraGrup',     delegation);
+  fd.append('sustinator1',  s1);
+  fd.append('sustinator2',  s2);
+  fd.append('sustinator3',  s3);
+  fd.append('sustinator4',  s4);
+  fd.append('directiva',    directive);
+  fd.append('articol',      article);
+  fd.append('actiune',      action);
+  fd.append('textModificat',amendedText);
+
+  try {
+    await fetch(SCRIPT_URL, { method:'POST', mode:'no-cors', body:fd });
+  } catch(e) {}
+
+  // Show success regardless (no-cors can't read response)
+  document.getElementById('successOverlay').classList.add('show');
+  document.getElementById('succ-title').textContent = t['succ-title'];
+  document.getElementById('succ-desc').textContent  = t['succ-desc'];
+  document.getElementById('succ-btn').textContent   = t['succ-btn'];
+
+  btn.disabled = false;
+  document.getElementById('btnText').textContent = t.btnSubmit;
+  document.getElementById('btnIcon').outerHTML = '<svg id="btnIcon" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 7h10M7.5 3l4.5 4-4.5 4"/></svg>';
+}
+setLang('ro');
+function closeSuccess() {
+  document.getElementById('successOverlay').classList.remove('show');
+  ['initiator','s1','s2','s3','s4','article','amended-text'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  ['role-type','delegation','directive','action'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('delegation').disabled = true;
+  clearErrors();
+}
+</script>
+</body>
+</html>
