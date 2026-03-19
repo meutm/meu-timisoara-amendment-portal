@@ -301,6 +301,9 @@
           <input type="text" id="s4" placeholder="Supporter 4" maxlength="80" autocomplete="off" oninput="validateLatin(this)" />
         </div>
         <div class="fsh" id="hint-supporters">Full names · Latin characters only</div>
+<div style="margin-top:10px;padding:11px 14px;border-left:2px solid var(--gold);background:#fff;font-size:.75rem;font-weight:300;color:var(--ink2);line-height:1.65;" id="note-supporters">
+  At least one supporter must be from a different political party than the initiator. The other three may belong to the same party.
+</div>
       </div>
 
       <!-- SECTION 5 — DIRECTIVE -->
@@ -440,7 +443,7 @@ const T = {
     rph:'Select role...', rmin:'Minister', rmep:'MEP',
     'l-delegation':'Country / Political Group',
     dph:'Select role first...', 'hint-delegation':'Select your role above to unlock this field',
-    'l-supporters':'Supporters (4 required)', 'hint-supporters':'Full names · Latin characters only',
+    'l-supporters':'Supporters (4 required)', 'hint-supporters':'Full names · Latin characters only', 'note-supporters':'At least one supporter must be from a different political party than the initiator. The other three may belong to the same party.',
     'l-directive':'Directive', ddir:'Select directive...',
 dir1:'Directive on the Military Schengen Corridor',
 dir2:'Directive on facilitating access to medical investigations through a centralised appointment portal',
@@ -487,7 +490,7 @@ adelval:'Deleted', amodval:'Modified', aaddval:'Added',
     rph:'Selectează rolul...', rmin:'Ministru', rmep:'MEP',
     'l-delegation':'Țară / Grup Politic',
     dph:'Selectează mai întâi rolul...', 'hint-delegation':'Selectează rolul de mai sus pentru a debloca acest câmp',
-    'l-supporters':'Susținători (4 necesari)', 'hint-supporters':'Nume complete · Doar caractere latine',
+    'l-supporters':'Susținători (4 necesari)', 'hint-supporters':'Nume complete · Doar caractere latine', 'note-supporters':'Cel puțin unul dintre susținători trebuie să fie dintr-un alt partid politic decât inițiatorul. Ceilalți trei pot aparține aceluiași partid.',
     'l-directive':'Directivă', ddir:'Selectează directiva...',
     dir1:'Directiva privind Coridorul Militar Schengen',
     dir2:'Directiva privind facilitarea accesului la investigații medicale printr-un portal centralizat de programări',
@@ -531,7 +534,7 @@ function setLang(l) {
     'l-initiator','hint-initiator','l-role','l-delegation','dph','hint-delegation',
     'l-supporters','hint-supporters','l-directive','hint-directive',
     'l-article','hint-article','l-action','l-text','hint-text',
-    'succ-title','succ-desc','succ-btn'];
+    'succ-title','succ-desc','succ-btn', 'note-supporters'];
   ids.forEach(id => {
     const el = document.getElementById(id);
     if (el && t[id] !== undefined) el.textContent = t[id];
